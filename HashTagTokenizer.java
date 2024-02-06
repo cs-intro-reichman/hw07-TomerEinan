@@ -11,14 +11,12 @@ public class HashTagTokenizer {
 
 	public static String[] readDictionary(String fileName) {
 		String[] dictionary = new String[3000];
-
 		In in = new In(fileName);
-
-		// Your code here
-
+		for (int i = 0; i < 3000; i++) {
+			dictionary[i] = in.readString();
+		}
 		return dictionary;
 	}
-
 	public static boolean existInDictionary(String word, String []dictionary) {
 		for (int i = 0; i < dictionary.length; i++){
 			if (word == dictionary[i]){
