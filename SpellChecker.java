@@ -14,7 +14,7 @@ public class SpellChecker {
 		return str.substring(1);
 	}
 
-	public int levenshtein(String word1, String word2) {
+	public static int levenshtein(String word1, String word2) {
     word1 = word1.toLowerCase();
     word2 = word2.toLowerCase();
 
@@ -41,9 +41,23 @@ public class SpellChecker {
 		return dictionary;
 	}
 
-	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		// Your code goes here
-		return "";
+public static String spellChecker(String word, int threshold, String[] dictionary) {
+    int min = levenshtein(word, dictionary[0]);
+    String minw = dictionary[0]; // Initialize minw with the first word in the dictionary
+    for (int i = 1; i < dictionary.length; i++) {
+        int distance = levenshtein(word, dictionary[i]);
+        if (distance < min) {
+            min = distance;
+            minw = dictionary[i];
+        }
+    }
+    if (min <= threshold) {
+        return minw;
+    }
+    return word;
 	}
-
 }
+
+
+
+
