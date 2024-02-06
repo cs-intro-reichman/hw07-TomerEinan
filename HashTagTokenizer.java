@@ -34,12 +34,12 @@ public class HashTagTokenizer {
         }
         int N = hashtag.length();
         for (int i = 0; i <= N; i++) {
-		if (existInDictionary(hashtag.substring(0,i), dictionary)){
-			System.out.println(hashtag.substring(0,i));
+		if (existInDictionary(hashtag.substring(i), dictionary)){
+			System.out.println(hashtag.substring(i));
 			if (i == N){
 				return;
 			}
-			breakHashTag(hashtag.substring(i + 1, hashtag.length()), dictionary);
+			breakHashTag(hashtag.substring(i + 1, hashtag.length() - 1), dictionary);
 		}
         }
     }
