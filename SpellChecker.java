@@ -11,11 +11,22 @@ public class SpellChecker {
 	}
 
 	public static String tail(String str) {
-		// Your code goes here
+		return str.substring(1);
 	}
 
 	public static int levenshtein(String word1, String word2) {
-		// Your code goes here
+		word1 = word1.toLowerCase();
+		word2 = word2.toLowerCase();
+		if (word1.length() == 0 ){
+			reutrn word2.length();
+		}
+		if (word2.length()== 0){
+			return word1.legnth();
+			}
+		if (word1.charAt(0) == word.charAt(0)){
+			return levenshtein(tail(word1), tail(word2));
+		}
+		return 1 + levenshtein(tail(word1), tail(word2));
 	}
 
 	public static String[] readDictionary(String fileName) {
